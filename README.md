@@ -25,7 +25,7 @@ MVP Telegram-бота и мини-приложения для кофейни, к
 ### 1. Мини-приложение на GitHub Pages
 1. Залейте репозиторий на GitHub.
 2. **Settings → Pages → Source: GitHub Actions.**
-3. После пуша в `main` приложение будет доступно по адресу `https://<логин>.github.io/haoshi-bot/`.
+3. После пуша в `main` приложение будет доступно по адресу `https://abelaia.github.io/haoshi/`.
 
 Посмотреть локально:
 ```bash
