@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Хаоши · 好时</title>
+  <meta name="description" content="Кофейня 24 сезонов Китая — прототип мини-приложения">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<!-- ===== Графика: маскоты и узоры ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Панда-бариста «Хао-Хао» -->
+    <symbol id="panda" viewBox="0 0 200 230">
+      <ellipse cx="100" cy="222" rx="62" ry="6" fill="#000" opacity=".12"/>
+      <!-- ноги -->
+      <ellipse cx="72" cy="210" rx="20" ry="13" fill="#231F20"/>
+      <ellipse cx="128" cy="210" rx="20" ry="13" fill="#231F20"/>
+      <!-- тело -->
+      <ellipse cx="100" cy="165" rx="58" ry="50" fill="#FFFDF7" stroke="#231F20" stroke-width="4"/>
+      <!-- фартук -->
+      <path d="M68 132 Q100 124 132 132 L138 196 Q100 210 62 196 Z" fill="#B8232F" stroke="#231F20" stroke-width="3"/>
+      <path d="M68 132 Q100 124 132 132" fill="none" stroke="#D4A24C" stroke-width="4"/>
+      <rect x="85" y="156" width="30" height="30" rx="4" fill="#D4A24C"/>
+      <text x="100" y="179" text-anchor="middle" font-family="Ma Shan Zheng, Noto Serif SC, serif" font-size="24" fill="#B8232F">好</text>
+      <!-- левая лапа -->
+      <ellipse cx="52" cy="160" rx="15" ry="26" transform="rotate(28 52 160)" fill="#231F20"/>
+      <!-- уши -->
+      <circle cx="52" cy="42" r="20" fill="#231F20"/>
+      <circle cx="148" cy="42" r="20" fill="#231F20"/>
+      <circle cx="52" cy="42" r="9" fill="#4A3F3A"/>
+      <circle cx="148" cy="42" r="9" fill="#4A3F3A"/>
+      <!-- голова -->
+      <circle cx="100" cy="86" r="56" fill="#FFFDF7" stroke="#231F20" stroke-width="4"/>
+      <!-- шапочка с кисточкой -->
+      <path d="M68 44 Q100 18 132 44 Q100 36 68 44 Z" fill="#B8232F" stroke="#231F20" stroke-width="3"/>
+      <circle cx="100" cy="27" r="6" fill="#D4A24C" stroke="#231F20" stroke-width="2"/>
+      <!-- пятна вокруг глаз -->
+      <ellipse cx="77" cy="86" rx="15" ry="19" transform="rotate(-28 77 86)" fill="#231F20"/>
+      <ellipse cx="123" cy="86" rx="15" ry="19" transform="rotate(28 123 86)" fill="#231F20"/>
+      <!-- глаза -->
+      <circle cx="79" cy="86" r="7" fill="#FFF"/>
+      <circle cx="121" cy="86" r="7" fill="#FFF"/>
+      <circle cx="80" cy="87" r="4" fill="#231F20"/>
+      <circle cx="120" cy="87" r="4" fill="#231F20"/>
+      <circle cx="81.5" cy="85" r="1.4" fill="#FFF"/>
+      <circle cx="121.5" cy="85" r="1.4" fill="#FFF"/>
+      <!-- нос и рот -->
+      <ellipse cx="100" cy="104" rx="8" ry="5.5" fill="#231F20"/>
+      <path d="M90 113 Q100 122 110 113" fill="none" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+      <!-- щёчки -->
+      <circle cx="66" cy="110" r="8" fill="#F28B82" opacity=".55"/>
+      <circle cx="134" cy="110" r="8" fill="#F28B82" opacity=".55"/>
+      <!-- стакан в правой лапе -->
+      <g class="panda-cup">
+        <path d="M150 104 q-6 -10 0 -18 q6 -8 0 -16" fill="none" stroke="#B9A88F" stroke-width="3" stroke-linecap="round" class="steam"/>
+        <path d="M162 106 q-6 -10 0 -18 q6 -8 0 -16" fill="none" stroke="#B9A88F" stroke-width="3" stroke-linecap="round" class="steam s2"/>
+        <rect x="140" y="110" width="34" height="8" rx="3" fill="#FFFDF7" stroke="#231F20" stroke-width="3"/>
+        <path d="M143 118 L171 118 L167 152 L147 152 Z" fill="#FFFDF7" stroke="#231F20" stroke-width="3"/>
+        <rect x="144.5" y="128" width="25" height="10" fill="#B8232F"/>
+      </g>
+      <ellipse cx="150" cy="146" rx="15" ry="22" transform="rotate(-35 150 146)" fill="#231F20"/>
+    </symbol>
+
+    <!-- Баоцзы-малыш -->
+    <symbol id="bao" viewBox="0 0 160 140">
+      <ellipse cx="80" cy="130" rx="52" ry="6" fill="#000" opacity=".12"/>
+      <path d="M20 100 Q14 50 80 30 Q146 50 140 100 Q140 124 80 124 Q20 124 20 100 Z" fill="#FFF8EA" stroke="#231F20" stroke-width="4"/>
+      <path d="M80 30 Q70 46 58 50 M80 30 Q90 46 102 50 M80 30 L80 50 M80 30 Q60 40 44 60 M80 30 Q100 40 116 60" fill="none" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="62" cy="86" r="5" fill="#231F20"/>
+      <circle cx="98" cy="86" r="5" fill="#231F20"/>
+      <path d="M72 96 Q80 104 88 96" fill="none" stroke="#231F20" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="50" cy="98" r="7" fill="#F28B82" opacity=".55"/>
+      <circle cx="110" cy="98" r="7" fill="#F28B82" opacity=".55"/>
+    </symbol>
+
+    <!-- Облако сянъюнь -->
+    <symbol id="cloud" viewBox="0 0 120 50">
+      <path d="M10 40 Q4 26 18 22 Q20 8 36 12 Q46 0 60 10 Q76 2 82 16 Q100 12 100 28 Q114 30 110 40 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M36 26 q8 -8 16 0 q-8 8 -16 0 M66 24 q8 -8 16 0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Фонарик -->
+    <symbol id="lantern" viewBox="0 0 40 70">
+      <line x1="20" y1="0" x2="20" y2="10" stroke="#231F20" stroke-width="2"/>
+      <rect x="12" y="9" width="16" height="5" rx="1" fill="#D4A24C"/>
+      <ellipse cx="20" cy="32" rx="17" ry="19" fill="#B8232F"/>
+      <path d="M20 13 Q8 32 20 51 M20 13 Q32 32 20 51" fill="none" stroke="#8E1B24" stroke-width="1.5"/>
+      <rect x="12" y="49" width="16" height="5" rx="1" fill="#D4A24C"/>
+      <path d="M16 54 L15 68 M20 54 L20 69 M24 54 L25 68" stroke="#D4A24C" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <!-- Шапка -->
+  <header class="topbar">
+    <svg class="lantern l1"><use href="#lantern"/></svg>
+    <div class="brand">
+      <div class="seal" aria-hidden="true"><span>好</span><span>时</span></div>
+      <div>
+        <div class="brand-name">Хаоши</div>
+        <div class="brand-sub">кофейня 24 сезонов</div>
+      </div>
+    </div>
+    <button class="profile-chip" id="profileChip" data-go="name" aria-label="Моё китайское имя">
+      <span id="profileHanzi">名</span>
+    </button>
+    <svg class="lantern l2"><use href="#lantern"/></svg>
+  </header>
+
+  <main id="views">
+
+    <!-- ========== ГЛАВНАЯ ========== -->
+    <section class="view active" id="view-home">
+      <div class="hero">
+        <svg class="cloud c1"><use href="#cloud"/></svg>
+        <svg class="cloud c2"><use href="#cloud"/></svg>
+        <svg class="panda" viewBox="0 0 200 230"><use href="#panda"/></svg>
+        <div class="bubble" id="greeting">你好! Я Хао-Хао.</div>
+      </div>
+
+      <article class="season-card" id="seasonCard">
+        <div class="season-head">
+          <div>
+            <div class="eyebrow">Сейчас сезон</div>
+            <h1 class="season-ru" id="seasonRu"></h1>
+            <div class="season-py" id="seasonPy"></div>
+          </div>
+          <div class="season-zh" id="seasonZh"></div>
+        </div>
+        <div class="countdown" id="countdown"></div>
+        <div class="season-drink">
+          <div class="cup-mini" id="seasonCup"></div>
+          <div class="drink-info">
+            <div class="drink-zh" id="drinkZh"></div>
+            <div class="drink-name" id="drinkName"></div>
+            <div class="drink-fact" id="drinkFact"></div>
+          </div>
+        </div>
+        <div class="season-actions">
+          <span class="price" id="seasonPrice"></span>
+          <button class="btn btn-red" id="addSeason">В заказ</button>
+        </div>
+      </article>
+
+      <div class="grid2">
+        <article class="card phrase-card">
+          <div class="eyebrow">Фраза дня · −10%</div>
+          <div class="phrase-zh" id="phraseZh"></div>
+          <div class="phrase-py" id="phrasePy"></div>
+          <div class="phrase-ru" id="phraseRu"></div>
+          <button class="btn btn-ghost btn-sm" id="speak">🔊 Послушать</button>
+        </article>
+
+        <article class="card fortune-card">
+          <div class="eyebrow">Предсказание</div>
+          <div class="fortune-tube" id="fortuneTube" role="button" tabindex="0" aria-label="Вытянуть предсказание">
+            <div class="sticks"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="tube">签</div>
+          </div>
+          <div class="fortune-text" id="fortuneText">Встряхните стакан с палочками</div>
+        </article>
+      </div>
+
+      <article class="card upcoming">
+        <div class="eyebrow">Скоро</div>
+        <div id="nextSeason"></div>
+      </article>
+    </section>
+
+    <!-- ========== МЕНЮ ========== -->
+    <section class="view" id="view-menu">
+      <h2 class="section-title"><span>菜单</span> Меню</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-cat="season">Сезон</button>
+        <button class="tab" data-cat="china">Хиты Китая</button>
+        <button class="tab" data-cat="classic">Классика</button>
+        <button class="tab" data-cat="dessert">К чаю</button>
+      </div>
+      <div class="menu-list" id="menuList"></div>
+    </section>
+
+    <!-- ========== ИМЯ ========== -->
+    <section class="view" id="view-name">
+      <h2 class="section-title"><span>名字</span> Ваше китайское имя</h2>
+      <article class="card">
+        <p class="muted">Напишите имя, и Хао-Хао подберёт вам китайское имя. Оно будет на каждом вашем стакане.</p>
+        <form class="name-form" id="nameForm">
+          <input id="nameInput" type="text" placeholder="Например, Алина" autocomplete="given-name" maxlength="24" required>
+          <button class="btn btn-red" type="submit">Подобрать</button>
+        </form>
+      </article>
+      <div class="name-result hidden" id="nameResult">
+        <div class="cup-big" id="cupBig"></div>
+        <article class="card">
+          <div class="eyebrow">Так звучит ваше имя</div>
+          <div class="name-sound" id="nameSound"></div>
+          <div class="divider"></div>
+          <div class="eyebrow">Ваше имя со смыслом</div>
+          <div class="name-hanzi" id="nameHanzi"></div>
+          <div class="name-py" id="namePy"></div>
+          <div class="name-meaning" id="nameMeaning"></div>
+          <button class="btn btn-ghost btn-sm" id="speakName">🔊 Как произносится</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== ПАСПОРТ ========== -->
+    <section class="view" id="view-passport">
+      <h2 class="section-title"><span>护照</span> Паспорт сезонов</h2>
+      <article class="card box-card">
+        <div>
+          <div class="eyebrow">Слепая коробка</div>
+          <div class="box-progress-text" id="boxText"></div>
+          <div class="progress"><div class="progress-bar" id="boxBar"></div></div>
+        </div>
+        <div class="blind-box" id="blindBox" aria-hidden="true">盲盒</div>
+      </article>
+      <p class="muted center">Каждый сезонный напиток — печать в паспорт. Соберите все 24.</p>
+      <div class="stamps" id="stamps"></div>
+      <div class="figures-wrap">
+        <h3 class="mini-title">Моя коллекция фигурок</h3>
+        <div class="figures" id="figures"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Корзина -->
+  <div class="cart-bar hidden" id="cartBar">
+    <div><span id="cartCount">0</span> · <b id="cartTotal">0 ₽</b></div>
+    <button class="btn btn-gold" id="openCart">Оформить</button>
+  </div>
+
+  <!-- Нижняя навигация -->
+  <nav class="tabbar">
+    <button class="nav active" data-go="home"><span class="nav-zh">首页</span>Главная</button>
+    <button class="nav" data-go="menu"><span class="nav-zh">菜单</span>Меню</button>
+    <button class="nav" data-go="name"><span class="nav-zh">名字</span>Имя</button>
+    <button class="nav" data-go="passport"><span class="nav-zh">护照</span>Паспорт</button>
+  </nav>
+</div>
+
+<!-- Шторка заказа -->
+<div class="sheet-backdrop hidden" id="sheet">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-handle"></div>
+    <h2 id="sheetTitle" class="section-title"><span>订单</span> Ваш заказ</h2>
+    <div id="cartItems"></div>
+    <label class="field">
+      <span>Заберу через</span>
+      <select id="pickup">
+        <option value="10">10 минут</option>
+        <option value="15" selected>15 минут</option>
+        <option value="20">20 минут</option>
+        <option value="30">30 минут</option>
+      </select>
+    </label>
+    <label class="check">
+      <input type="checkbox" id="sayChinese">
+      <span>Скажу фразу дня по-китайски на кассе <b>−10%</b></span>
+    </label>
+    <div class="sum-row"><span>Итого</span><b id="sheetTotal">0 ₽</b></div>
+    <button class="btn btn-red btn-wide" id="pay">Оплатить через СБП</button>
+    <p class="muted small center">Это прототип: оплата не списывается.</p>
+    <button class="btn btn-ghost btn-wide" id="closeSheet">Назад</button>
+  </div>
+</div>
+
+<!-- Экран успеха -->
+<div class="sheet-backdrop hidden" id="success">
+  <div class="success">
+    <svg class="panda small" viewBox="0 0 200 230"><use href="#panda"/></svg>
+    <h2>谢谢! Заказ принят</h2>
+    <div class="order-no" id="orderNo"></div>
+    <p id="successText"></p>
+    <div class="reveal hidden" id="reveal"></div>
+    <button class="btn btn-red btn-wide" id="closeSuccess">Отлично</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
